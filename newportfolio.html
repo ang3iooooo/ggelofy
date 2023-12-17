@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="newportfolio.css">
+    <link rel="stylesheet" href="utils.css">
+    <title>Porfolio</title>
+</head>
+<body>
+
+    <div class="wrappe"> 
+        <!-- Wave bg -->
+        <div class="wave-container">
+          <div class="wave -one"></div>
+          <div class="wave -two"></div>
+          <div class="wave -three"></div>
+        </div>
+    
+        <!-- Home Page -->
+        <div class="text-wrap">
+            <div class="header-text">
+              <div class="me-wrapper">
+                  <div class="card">MEYOO</div>
+              </div>
+              <div class="text container">
+                <h1>Odyssey</h1>
+                <p>"In 'The Odyssey: New World,' players explore a mysterious, uninhabited town, making crucial decisions that shape the narrative. The latest version offers a user-friendly interface, replacing ASCII text with AI-generated visuals for a more immersive experience. With its engaging storyline and interactive mechanics, the game promises an enthralling adventure as players uncover the secrets of the enigmatic town."</p>
+                <button class="btn" onclick="window.location.href='newportfolio.html'">
+                  <a href="images/Group4_ITC_FINAL_PROJECT.pdf" download>Download pdf</a>
+              </button>                
+            </div>     
+              <div class="text container">
+                <h1>RTU-Connect</h1>
+                <p>RTU Connect is an upgraded online platform enhancing connectivity within the RTU community. It caters to students, professors, clubs, and organizations, offering convenient tools to foster seamless interaction and collaboration, addressing challenges of busy campus life and limited resources. The platform aims to reduce isolation, particularly for new students, by serving as a centralized hub for comprehensive communication and collaboration.</p>
+                <button class="btn" onclick="window.location.href='newportfolio.html'">
+                  <a href="images/layout (PC).pdf" download>Download pdf</a>
+              </button>                
+            </div>            
+              <div class="text container">
+                <h1>ADDITIONAL(essay)</h1>
+                <button class="btn" onclick="window.location.href= 'newportfolio.html' ">
+                  <a href="images/I will only tell to u.pdf" download>I will only tell to u</a>
+              </button>  
+              <button class="btn" onclick="window.location.href='newportfolio.html'">
+                <a href="images/Unbearable feelings of Angelo.pdf" download>Unbearable feelings of Angelo</a>
+            </button>
+              </div>
+            </div>
+          </div>
+        <!-- Header -->
+        <div class="header">
+          <div class="burger-wrapper">
+            <div class="burger"></div>
+          </div>
+          <div class="logo-text">Porfolio</div>
+        </div>
+    
+        <!-- Navigation -->
+        <div class="nav">
+          <ul class="nav_main">
+            <li><a class="nav_link" href="newhomepage.html">Home</a></li>
+            <li><a class="nav_link" href="profile.html">Profile</a></li>
+            <li><a class="nav_link" href="newportfolio.html">Porfolio</a></li>
+          </ul>
+          <div class="nav_divider"></div>
+          <ul class="nav_sub">
+                <li><a class="nav_link" href="newcontacts.html">Contacts</a></li>
+          </ul>
+          </div>
+        </div>
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            const burger = document.querySelector('.burger-wrapper');
+            const nav = document.querySelector('.nav');
+            const card = document.querySelector('.card');
+        
+            burger.addEventListener('click', function (event) {
+              event.stopPropagation();
+              nav.classList.toggle('active');
+              nav.classList.toggle('slide-in-left');
+            });
+        
+            document.addEventListener('click', function (event) {
+              if (!nav.contains(event.target) && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                nav.classList.remove('slide-in-left');
+              }
+            });
+        
+            card.addEventListener('click', function () {
+              const windowWidth = window.innerWidth;
+        
+              if (windowWidth <= 600) {
+                // Toggle between "Meyoo" and "Project" content
+                const cardContent = card.textContent.trim().toLowerCase();
+                card.textContent = cardContent === 'meyoo' ? 'Project' : 'Meyoo';
+              }
+            });
+          });
+        </script>        
+</body>
+</html>

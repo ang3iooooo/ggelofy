@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="newcontacts.css">
+    <link rel="stylesheet" href="utils.css">
+    <title>Contacts</title>
+</head>
+<body>
+
+    <div class="wrapper">
+        
+        <!-- Wave bg -->
+        <div class="wave-container">
+          <div class="wave -one"></div>
+          <div class="wave -two"></div>
+          <div class="wave -three"></div>
+        </div>
+    
+        <!-- Home Page -->
+        <div class="text-wrap">
+            <div class="header-text">
+              <div class="me-wrapper">
+                <img src="images/CONTACTS.jpg" alt="" class="me-img">
+              </div>
+              <div class="text container">
+                <h1>Contacts</h1>
+                <button class="btn"><a href="https://web.facebook.com/angelo.edwards.05" target="_blank">FACEBOOK</a></button>
+                <button class="btn"><a href="https://www.instagram.com/ang3ioo/" target="_blank">INSTAGRAM</a></button>
+                <button class="btn"><a href="mailto:rillortaangelo1@gmail.com" target="_blank">GMAIL</a></button>
+              </div>
+              <div class="MessageMe container">
+                <form name="submit-to-google-sheet">
+                    <h2>for testimonials or recommendations!</h2>
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="Submit" class="btn">Submit</button>
+                    <span id="msg"></span>
+                </form>
+            </div>
+            </div>
+          </div>
+        <!-- Header -->
+        <div class="header">
+          <div class="burger-wrapper">
+            <div class="burger"></div>
+          </div>
+          <div class="logo-text">Contacts</div>
+        </div>
+    
+        <!-- Navigation -->
+        <div class="nav">
+          <ul class="nav_main">
+            <li><a class="nav_link" href="newhomepage.html">Home</a></li>
+            <li><a class="nav_link" href="profile.html">Profile</a></li>
+            <li><a class="nav_link" href="newportfolio.html">Porfolio</a></li>
+          </ul>
+          <div class="nav_divider"></div>
+          <ul class="nav_sub">
+                <li><a class="nav_link" href="newcontacts.html">Contacts</a></li>
+          </ul>
+          </div>
+        </div>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxK1eawUldKhU_0a00Mw0T9syc0BZrIUpL6GEDJYGQow_9C7m5fIJd9xZelGuNpOiMX/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML ="Successful message delivery!"
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                },5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+  document.addEventListener('DOMContentLoaded', function () {
+  const burger = document.querySelector('.burger-wrapper');
+  const nav = document.querySelector('.nav');
+
+  burger.addEventListener('click', function (event) {
+    event.stopPropagation(); // Prevent the click event from reaching the document
+
+    nav.classList.toggle('active');
+    nav.classList.toggle('slide-in-left');
+  });
+
+  document.addEventListener('click', function (event) {
+    if (!nav.contains(event.target) && nav.classList.contains('active')) {
+      // Close the navigation menu if a click occurs outside of it
+      nav.classList.remove('active');
+      nav.classList.remove('slide-in-left');
+    }
+  });
+});
+    </script>
+</body>
+</html>

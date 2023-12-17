@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Meyoo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Wave bg -->
+        <div class="wave-container">
+          <div class="wave -one"></div>
+          <div class="wave -two"></div>
+          <div class="wave -three"></div>
+        </div>
+        <div class="container">
+            <form id="usernameForm" action="newhomepage.html" method="GET">
+                <h1>Meyoo</h1>
+                <div class="group">
+                    <input type="text" id="username" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>enter ur cute name</label>
+                </div>
+            </form>
+        </div>
+
+        <script>
+            document.getElementById('usernameForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+                const username = document.getElementById('username').value;
+                sessionStorage.setItem('username', username);
+                window.location.href = "newhomepage.html";
+            });
+        </script>
+    </div>
+</body>
+</html>
