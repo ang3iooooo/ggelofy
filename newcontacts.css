@@ -175,7 +175,7 @@ body {
 .MessageMe form{
   width: 100%;
   margin: 2px 0% 1px;
-  padding: 20px 40px 2px 1px;
+      padding: 20px 40px 2px 1px;
 }
 form .btn{
   padding: 14px 60px;
@@ -396,10 +396,10 @@ form input, form textarea{
   margin-top: 20px;
 }
 
-.MessageMe form {
+.MessageMe form{
   width: 100%;
   margin: 2px 0% 1px;
-  padding: 15px 1px; /* Adjusted padding for better fit on small screens */
+      padding: 20px 40px 2px 1px;
 }
 
 form .btn {
